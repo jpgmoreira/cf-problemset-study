@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+		<link rel="stylesheet" href="index.css">
+		<title>Codeforces Problemset Study</title>
+	</head>
+	<body>
+
+		<div class="section-div">
+			<div>
+				<button type="button" id="get-question">Random Problemset Question</button>
+			</div>
+			<div>
+				<div>
+					<label for="search-tags">Search tags (separated by <b>;</b>):</label>
+				</div>
+				<div>
+					<input type="text" id="search-tags" placeholder="no tags">
+				</div>
+				<div>
+					<label>Rating:</label>
+					<input type="text" id="min-rating" size="4" placeholder="min">
+					<input type="text" id="max-rating" size="4" placeholder="max">
+					<label>Page:</label>
+					<input type="text" id="min-page" size="4" placeholder="min">
+					<input type="text" id="max-page" size="4" placeholder="max">
+				</div>
+				<div id="matched-parent" class="hidden">
+					<span id="matched"></span> problems matched the search criteria.
+				</div>
+			</div>
+		</div>
+
+		<div id="question-info" class="section-div hidden">
+			<div id="question-link-parent">
+				<a id="question-link" href="#"></a>
+			</div>
+			<div>
+				Difficulty (rating): <span id="difficulty" class="highlight"></span> [800 - 3500]
+			</div>
+			<div>
+				Solved by: <span id="solved" class="highlight"></span> users.
+			</div>
+			<div>
+				Solved rank: <span id="solved-rank" class="highlight"></span> of <span id="n-problems"></span> problems.
+				<small>(Lower value suggests easier problem).</small>
+			</div>
+			<div>
+				Page (sorted by most solved): <span id="page" class="highlight"></span> of <span id="n-pages"></span>.
+			</div>
+			<div>
+				<div>Tags: <input type="checkbox" id="show-tags"></div>
+				<div id="problem-tags" class="hidden"></div>
+			</div>
+		</div>
+
+		<script src="index.js"></script>
+	</body>
+</html>

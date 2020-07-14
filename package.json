@@ -1,0 +1,17 @@
+{
+  "name": "cf-problemset-study",
+  "version": "1.0.0",
+  "description": "A program to help studying the Codeforces problemset.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "João Pedro <jpgmoreira19@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "latest"
+  },
+  "dependencies": {
+    "node-fetch": "latest"
+  }
+}
