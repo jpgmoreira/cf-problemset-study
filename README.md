@@ -16,8 +16,8 @@ O programa sugere um problema aleatório para o usuário resolver. Permite filtr
 Para rodar o programa, é necessário ter o [Node.js](https://nodejs.org/en/) instalado na sua máquina.
 
 1. Clone ou faça o download deste repositório para a sua máquina.
-2. Abra um terminal e execute o comando `npm install` para instalar as dependências do programa.
-3. Para iniciar o programa execute o comando `npm start`.
+2. Abra um terminal no diretório do repositório, e execute o comando `npm install` para instalar as dependências do programa.
+3. Para iniciar o programa execute o comando `npm start` no mesmo diretório.
 
 &rarr; O botão *Download Problemset* no menu superior faz o download do problemset atualizado do Codeforces. Novos problemas são adicionados com frequência, então recomendo refazer o download do problemset regularmente. O download é feito para um arquivo *problemset.json* no diretório do programa.
 
