@@ -2,6 +2,8 @@
 
 Este programa foi criado como uma alternativa para interagir com o [problemset do Codeforces](https://codeforces.com/problemset). As informações sobre os problemas são obtidas usando a [API do Codeforces](https://codeforces.com/apiHelp).
 
+**Vídeo com instruções:** https://www.youtube.com/watch?v=IvRBXonTFKE
+
 O programa sugere um problema aleatório para o usuário resolver. Permite filtrar problemas por:
 - Lista de tags.
 
@@ -9,7 +11,6 @@ O programa sugere um problema aleatório para o usuário resolver. Permite filtr
 
 - Página mínima e máxima.
 
-  
 
 ## Instruções
 
