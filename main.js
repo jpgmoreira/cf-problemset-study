@@ -2,7 +2,7 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const { app, BrowserWindow, Menu, ipcMain, dialog } = require('electron');
 
-const DATE = 'July 14, 2020';
+const DATE = 'July 20, 2020';
 const VERSION = process.env.npm_package_version;
 const AUTHOR = `${process.env.npm_package_author_name} <${process.env.npm_package_author_email}>`;
 const URL = 'https://github.com/jpgmoreira/cf-problemset-study';
@@ -92,6 +92,32 @@ const downloadProblemset = () => {
 }
 
 /** -------------------------------------------------- */
+// Filters update:
+let filters;
+const writeFiltersFile = (newFilters) => {
+	filters = newFilters;
+	fs.writeFileSync('./meta/meta.json', JSON.stringify(filters));
+}
+const readFilters = () => {
+	if (!fs.existsSync('./meta/')) {
+		fs.mkdirSync('./meta/');
+	}
+	if (!fs.existsSync('./meta/meta.json')) {
+		const newFilters = {
+			searchTags: '',
+			minRating: '',
+			maxRating: '',
+			minPage: '',
+			maxPage: ''
+		};
+		writeFiltersFile(newFilters);
+	}
+	else {
+		filters = JSON.parse(fs.readFileSync('./meta/meta.json'));
+	}
+}
+
+/** -------------------------------------------------- */
 
 const createMainWindow = () => {
 	mainWindow = new BrowserWindow({
@@ -125,6 +151,8 @@ const createMainWindow = () => {
 	mainWindow.once('ready-to-show', () => {
 		mainWindow.show();
 		loadProblems();
+		readFilters();
+		mainWindow.webContents.send('set-filters', filters);
 	}); 
 }
 
@@ -173,6 +201,9 @@ ipcMain.on('get-question', (e, tags, rating, page) => {
 			nProblems: problems.length
 		};
 	}
+});
+ipcMain.on('update-filters', (e, newFilters) => {
+	writeFiltersFile(newFilters);
 });
 /** -------------------------------------------------- */
 

@@ -31,6 +31,29 @@ $showTags.addEventListener('click', () => {
 		$tags.classList.add('hidden');
 });
 
+// Changes on filters made by the user:
+const inputFilters = [$searchTags, $minRating, $maxRating, $minPage, $maxPage];
+inputFilters.forEach(e => {
+	e.addEventListener('change', () => {
+		const filters = {
+			searchTags: $searchTags.value,
+			minRating: $minRating.value,
+			maxRating: $maxRating.value,
+			minPage: $minPage.value,
+			maxPage: $maxPage.value
+		};
+		ipcRenderer.send('update-filters', filters);
+	});
+});
+
+ipcRenderer.on('set-filters', (e, filters) => {
+	$searchTags.value = filters.searchTags;
+	$minRating.value = filters.minRating;
+	$maxRating.value = filters.maxRating;
+	$minPage.value = filters.minPage;
+	$maxPage.value = filters.maxPage;
+});
+
 $getQuestion.addEventListener('click', () => {
 	let searchTags = $searchTags.value.split(';').map(x => x.trim());
 	searchTags = searchTags.filter(x => x !== '');
@@ -99,6 +122,4 @@ $getQuestion.addEventListener('click', () => {
 
 		$tags.innerHTML = tags.join('; ');
 	}
-
 });
-
