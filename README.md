@@ -1,5 +1,15 @@
 # CF Problemset Study
 
+
+
+### :warning: Este projeto foi descontinuado. :warning:
+
+### :warning: Acesse a página do novo projeto: https://github.com/jpgmoreira/LPC-app :warning:
+
+
+
+----
+
 Este programa foi criado como uma alternativa para interagir com o [problemset do Codeforces](https://codeforces.com/problemset). As informações sobre os problemas são obtidas usando a [API do Codeforces](https://codeforces.com/apiHelp).
 
 **Vídeo com instruções:** https://www.youtube.com/watch?v=IvRBXonTFKE
